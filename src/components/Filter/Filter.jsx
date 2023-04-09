@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getFilter } from 'redux/selectors';
 
-// import { setFilterValue } from 'redux/filterSlice';
-import { setFilterValue } from 'redux/actions';
+import { setFilterValue } from 'redux/filterSlice';
+// import { setFilterValue } from 'redux/actions';
 
 import { StyledFilter, StyledInput } from './Filter.styled';
 
@@ -15,7 +15,7 @@ export const Filter = () => {
 
   return (
     <StyledFilter>
-      Finde contacts by name
+      Find contacts by name
       <DebounceInput
         element={StyledInput}
         type="text"
