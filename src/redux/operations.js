@@ -60,6 +60,7 @@
 
 // todo 2 вариант slice
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://642b3205208dfe2547142a12.mockapi.io/api/v1';
@@ -86,6 +87,7 @@ export const addContact = createAsyncThunk(
 
     try {
       const { data } = await axios.post('/contacts', contact);
+      Notiflix.Notify.success(`${contact.name} is added to the phone book`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -98,6 +100,7 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     try {
       const { data } = await axios.delete(`/contacts/${contactId}`);
+      Notiflix.Notify.info('The contact removed from phone book');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
